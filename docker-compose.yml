@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mplegalcontracts.api:
+    image: ${DOCKER_REGISTRY-}mplegalcontractsapi
+    build:
+      context: .
+      dockerfile: MPLegalContracts.API/Dockerfile
+    environment:
+      - ConnectionStrings__Database=Server=db,1433;Database=YourDatabase;User Id=sa;Password=Your_password123;Encrypt=False
+    depends_on:
+      - db
+ 
+  db:
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"

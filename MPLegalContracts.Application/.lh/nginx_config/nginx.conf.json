@@ -1,0 +1,38 @@
+{
+    "sourceFile": "nginx_config/nginx.conf",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1714692018692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1714692029922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+server {\r\n+    listen 80;\r\n+    server_name localhost;\r\n+    return 301 https://$host$request_uri;\r\n+}\r\n+\r\n+server {\r\n+    listen 443 ssl;\r\n+    server_name localhost;\r\n+\r\n+    ssl_certificate /etc/nginx/ssl/nginx.crt;\r\n+    ssl_certificate_key /etc/nginx/ssl/nginx.key;\r\n+\r\n+    location / {\r\n+        root /usr/share/nginx/html;\r\n+        index index.html index.htm;\r\n+        try_files $uri $uri/ /index.html;\r\n+    }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1714693093090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,33 @@\n+server {\r\n+    listen       80;\r\n+    listen  [::]:80;\r\n+    server_name  localhost;\r\n+\r\n+    root   /usr/share/nginx/html;\r\n+    index  index.html;\r\n+\r\n+    gzip on;\r\n+    gzip_disable \"msie6\";\r\n+\r\n+    gzip_vary on;\r\n+    gzip_proxied any;\r\n+    gzip_comp_level 6;\r\n+    gzip_buffers 16 8k;\r\n+    gzip_http_version 1.1;\r\n+    gzip_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;\r\n+\r\n+    location ~* (\\.html)$ {\r\n+      expires -1y;\r\n+      add_header Pragma \"no-cache\";\r\n+      add_header Cache-Control \"public, no-cache\";\r\n+    }\r\n+\r\n+    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|json)$ {\r\n+      expires 1y;\r\n+      add_header Cache-Control \"public, immutable\";\r\n+    }\r\n+\r\n+    location / {\r\n+        try_files $uri $uri/ =404;\r\n+    }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1714693112970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,33 @@\n+server {\r\n+    listen       80;\r\n+    listen  [::]:80;\r\n+    server_name  localhost;\r\n+\r\n+    root   /usr/share/nginx/html;\r\n+    index  index.html;\r\n+\r\n+    gzip on;\r\n+    gzip_disable \"msie6\";\r\n+\r\n+    gzip_vary on;\r\n+    gzip_proxied any;\r\n+    gzip_comp_level 6;\r\n+    gzip_buffers 16 8k;\r\n+    gzip_http_version 1.1;\r\n+    gzip_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;\r\n+\r\n+    location ~* (\\.html)$ {\r\n+      expires -1y;\r\n+      add_header Pragma \"no-cache\";\r\n+      add_header Cache-Control \"public, no-cache\";\r\n+    }\r\n+\r\n+    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|json)$ {\r\n+      expires 1y;\r\n+      add_header Cache-Control \"public, immutable\";\r\n+    }\r\n+\r\n+    location / {\r\n+        try_files $uri $uri/ =404;\r\n+    }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1714695196123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,104 +1,13 @@\n server {\r\n-    listen       80;\r\n-    listen  [::]:80;\r\n-    server_name  localhost;\r\n-\r\n-    root   /usr/share/nginx/html;\r\n-    index  index.html;\r\n-\r\n-    gzip on;\r\n-    gzip_disable \"msie6\";\r\n-\r\n-    gzip_vary on;\r\n-    gzip_proxied any;\r\n-    gzip_comp_level 6;\r\n-    gzip_buffers 16 8k;\r\n-    gzip_http_version 1.1;\r\n-    gzip_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;\r\n-\r\n-    location ~* (\\.html)$ {\r\n-      expires -1y;\r\n-      add_header Pragma \"no-cache\";\r\n-      add_header Cache-Control \"public, no-cache\";\r\n-    }\r\n-\r\n-    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|json)$ {\r\n-      expires 1y;\r\n-      add_header Cache-Control \"public, immutable\";\r\n-    }\r\n-\r\n-    location / {\r\n-        try_files $uri $uri/ =404;\r\n-    }\r\n-}\n-server {\r\n-    listen       80;\r\n-    listen  [::]:80;\r\n-    server_name  localhost;\r\n-\r\n-    root   /usr/share/nginx/html;\r\n-    index  index.html;\r\n-\r\n-    gzip on;\r\n-    gzip_disable \"msie6\";\r\n-\r\n-    gzip_vary on;\r\n-    gzip_proxied any;\r\n-    gzip_comp_level 6;\r\n-    gzip_buffers 16 8k;\r\n-    gzip_http_version 1.1;\r\n-    gzip_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;\r\n-\r\n-    location ~* (\\.html)$ {\r\n-      expires -1y;\r\n-      add_header Pragma \"no-cache\";\r\n-      add_header Cache-Control \"public, no-cache\";\r\n-    }\r\n-\r\n-    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|json)$ {\r\n-      expires 1y;\r\n-      add_header Cache-Control \"public, immutable\";\r\n-    }\r\n-\r\n-    location / {\r\n-        try_files $uri $uri/ =404;\r\n-    }\r\n-}\n-server {\r\n-    listen 80;\r\n-    server_name localhost;\r\n-    return 301 https://$host$request_uri;\r\n-}\r\n-\r\n-server {\r\n     listen 443 ssl;\r\n     server_name localhost;\r\n \r\n-    ssl_certificate /etc/nginx/ssl/nginx.crt;\r\n-    ssl_certificate_key /etc/nginx/ssl/nginx.key;\r\n+    ssl_certificate /etc/nginx/ssl-certs/cert.pem;\r\n+    ssl_certificate_key /etc/nginx/ssl-certs/key.pem;\r\n \r\n     location / {\r\n         root /usr/share/nginx/html;\r\n         index index.html index.htm;\r\n-        try_files $uri $uri/ /index.html;\r\n+        try_files $uri $uri/ /index.html =404;\r\n     }\r\n-}\n-server {\r\n-    listen 80;\r\n-    server_name localhost;\r\n-    return 301 https://$host$request_uri;\r\n-}\r\n-\r\n-server {\r\n-    listen 443 ssl;\r\n-    server_name localhost;\r\n-\r\n-    ssl_certificate /etc/nginx/ssl/nginx.crt;\r\n-    ssl_certificate_key /etc/nginx/ssl/nginx.key;\r\n-\r\n-    location / {\r\n-        root /usr/share/nginx/html;\r\n-        index index.html index.htm;\r\n-        try_files $uri $uri/ /index.html;\r\n-    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1714695514312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,13 @@\n server {\r\n+    listen 80;\r\n+    server_name localhost;\r\n+    location / {\r\n+        return 301 https://$host$request_uri;\r\n+    }\r\n+}\r\n+\r\n+server {\r\n     listen 443 ssl;\r\n     server_name localhost;\r\n \r\n     ssl_certificate /etc/nginx/ssl-certs/cert.pem;\r\n"
+                }
+            ],
+            "date": 1714692018692,
+            "name": "Commit-0",
+            "content": "server {\r\n    listen 80;\r\n    server_name localhost;\r\n    return 301 https://$host$request_uri;\r\n}\r\n\r\nserver {\r\n    listen 443 ssl;\r\n    server_name localhost;\r\n\r\n    ssl_certificate /etc/nginx/ssl/nginx.crt;\r\n    ssl_certificate_key /etc/nginx/ssl/nginx.key;\r\n\r\n    location / {\r\n        root /usr/share/nginx/html;\r\n        index index.html index.htm;\r\n        try_files $uri $uri/ /index.html;\r\n    }\r\n}"
+        }
+    ]
+}

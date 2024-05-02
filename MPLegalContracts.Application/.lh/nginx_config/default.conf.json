@@ -1,0 +1,18 @@
+{
+    "sourceFile": "nginx_config/default.conf",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1714691617018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1714691617018,
+            "name": "Commit-0",
+            "content": "server {\r\n  listen 8081 ssl;\r\n  location / {\r\n      root /var/www/html;\r\n      try_files $uri $uri/ /index.html;\r\n  }\r\n}"
+        }
+    ]
+}

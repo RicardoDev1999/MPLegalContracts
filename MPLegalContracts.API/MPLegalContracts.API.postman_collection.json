@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "ddbc0cdc-5564-46da-a0a7-09519f6e1390",
+		"name": "MPLegalContracts.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1601326"
+	},
+	"item": [
+		{
+			"name": "legal-contracts",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get Legal Contract",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/legal-contracts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"legal-contracts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/legal-contracts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"legal-contracts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"author\": \"<string>\",\n  \"datePart\": {\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Legal Contract",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/legal-contracts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"legal-contracts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/legal-contracts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"legal-contracts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get Legal Contracts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/legal-contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"legal-contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/legal-contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"legal-contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"author\": \"<string>\",\n    \"datePart\": {\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"author\": \"<string>\",\n    \"datePart\": {\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Legal Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"author\": \"<string>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/legal-contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"legal-contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"author\": \"<string>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/legal-contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"legal-contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"author\": \"<string>\",\n  \"datePart\": {\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Legal Contract",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<integer>\",\n  \"author\": \"<string>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/legal-contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"legal-contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<integer>\",\n  \"author\": \"<string>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/legal-contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"legal-contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"content\": \"<string>\",\n  \"author\": \"<string>\",\n  \"datePart\": {\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7242"
+		}
+	]
+}

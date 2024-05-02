@@ -1,0 +1,18 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1714692213035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1714692213035,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"mplegalcontracts-application\",\r\n  \"private\": true,\r\n  \"version\": \"0.0.0\",\r\n  \"type\": \"module\",\r\n  \"scripts\": {\r\n    \"dev\": \"vite\",\r\n    \"build\": \"vite build\",\r\n    \"preview\": \"vite preview\"\r\n  },\r\n  \"dependencies\": {\r\n    \"axios\": \"^1.6.8\",\r\n    \"moment\": \"^2.30.1\",\r\n    \"vue\": \"^3.4.21\",\r\n    \"vue-router\": \"^4.3.2\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@vitejs/plugin-vue\": \"^5.0.4\",\r\n    \"autoprefixer\": \"^10.4.19\",\r\n    \"postcss\": \"^8.4.38\",\r\n    \"tailwindcss\": \"^3.4.3\",\r\n    \"vite\": \"^5.2.0\"\r\n  }\r\n}\r\n"
+        }
+    ]
+}
